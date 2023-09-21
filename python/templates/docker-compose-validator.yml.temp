@@ -1,0 +1,11 @@
+  $(validator_name):
+    platform: linux/amd64
+    container_name: $(validator_name)
+    image: "$(validator_image)"
+    ports:
+      - "$(validator_port1):80"
+      - "$(validator_port2):5005"
+      - "$(validator_port3):6006"
+      - "$(validator_port4):51235"
+    volumes:
+      - ./$(validator_name)/config:/config/
