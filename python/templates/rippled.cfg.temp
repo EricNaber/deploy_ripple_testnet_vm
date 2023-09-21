@@ -73,7 +73,6 @@ pool.ntp.org
 
 [ips_fixed]
 $(validator_fixed_ips)
-
 [validators_file]
 validators.txt
 
