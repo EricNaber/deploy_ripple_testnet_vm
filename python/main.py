@@ -5,12 +5,11 @@ RIPPLED_IMAGE_HONEST = "xrpllabsofficial/xrpld"
 RIPPLED_IMAGE_MALICIOUS = "xrpllabsofficial/xrpld"
 
 
-def get_vars_from_input(input_path: str, number_nodes: int) -> list:
-    # Read the first number_nodes entries from input_path as yml-format and return it
-    print(f"Read data from {input_path} and take first {number_nodes} nodes")
+def read_data_from_input(input_path: str) -> list:
+    # Read configurations for validation-nodes from input_path. Note that input_path should lead to *.yml-file
     with open(input_path, "r") as input_file:
-        result = yaml.safe_load(input_file.read())
-    return result[0:number_nodes]
+        data = yaml.safe_load(input_file.read())
+    return data["validators"]
 
 
 def _get_validator_fixed_ips(validator: dict, validators: list):
@@ -106,14 +105,10 @@ def create_docker_compose_file(validators: list, output_path: str) -> None:
         file.write(docker_compose_string)
 
 
-
-
-
 @argh.arg('input_path',help="Input path to validator-information")
 @argh.arg('output_path',help="Path to output validator-configs and file structure")
-@argh.arg('number_nodes',help="Number of nodes that shall be created. (creates 1 malicious node, n-1 honest nodes)", type=int)
-def main(input_path, output_path, number_nodes):
-    validators = get_vars_from_input(input_path, number_nodes)
+def main(input_path, output_path):
+    validators = read_data_from_input(input_path)
     create_validator_folders(output_path, validators)
     create_docker_compose_file(validators, output_path)
 
