@@ -74,7 +74,7 @@ def create_validator_folders(output_path: str, validators: list) -> None:
 
 
 def create_docker_compose_file(validators: list, output_path: str) -> None:
-    last_used_ports = {"port1": 8001, "port2": 5006, "port3": 4001, "port4": 9001}
+    last_used_ports = {"port1": 8000, "port2": 5005, "port3": 4000, "port4": 9000}
     with open(os.path.join("templates", "docker-compose-validator.yml.temp"), "r") as template_file:
         validator_template_string = template_file.read()
     with open(os.path.join("templates", "docker-compose.yml.temp"), "r") as template_file:
@@ -99,7 +99,7 @@ def create_docker_compose_file(validators: list, output_path: str) -> None:
         else:
             validator_string = validator_string.replace("$(validator_image)", RIPPLED_IMAGE_HONEST)
         
-        validators_string += f"{validator_string}\n\n"
+        validators_string += f"{validator_string}\n"
     
     with open(os.path.join(output_path, "docker-compose.yml"), "w") as file:
         docker_compose_string = docker_compose_template_string.replace("$(validators_string)", validators_string)

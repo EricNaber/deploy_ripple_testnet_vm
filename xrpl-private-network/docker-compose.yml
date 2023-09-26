@@ -1,9 +1,19 @@
 version: "3.9"
-
 services:
   validator_00:
     platform: linux/amd64
     container_name: validator_00
+    image: "xrpllabsofficial/xrpld"
+    ports:
+      - "8001:80"
+      - "5006:5005"
+      - "4001:6006"
+      - "9001:51235"
+    volumes:
+      - ./validator_00/config:/config/
+  validator_01:
+    platform: linux/amd64
+    container_name: validator_01
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8002:80"
@@ -11,11 +21,10 @@ services:
       - "4002:6006"
       - "9002:51235"
     volumes:
-      - ./validator_00/config:/config/
-
-  validator_01:
+      - ./validator_01/config:/config/
+  validator_02:
     platform: linux/amd64
-    container_name: validator_01
+    container_name: validator_02
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8003:80"
@@ -23,11 +32,10 @@ services:
       - "4003:6006"
       - "9003:51235"
     volumes:
-      - ./validator_01/config:/config/
-
-  validator_02:
+      - ./validator_02/config:/config/
+  validator_03:
     platform: linux/amd64
-    container_name: validator_02
+    container_name: validator_03
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8004:80"
@@ -35,11 +43,10 @@ services:
       - "4004:6006"
       - "9004:51235"
     volumes:
-      - ./validator_02/config:/config/
-
-  validator_03:
+      - ./validator_03/config:/config/
+  validator_04:
     platform: linux/amd64
-    container_name: validator_03
+    container_name: validator_04
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8005:80"
@@ -47,11 +54,10 @@ services:
       - "4005:6006"
       - "9005:51235"
     volumes:
-      - ./validator_03/config:/config/
-
-  validator_04:
+      - ./validator_04/config:/config/
+  validator_05:
     platform: linux/amd64
-    container_name: validator_04
+    container_name: validator_05
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8006:80"
@@ -59,11 +65,10 @@ services:
       - "4006:6006"
       - "9006:51235"
     volumes:
-      - ./validator_04/config:/config/
-
-  validator_05:
+      - ./validator_05/config:/config/
+  validator_06:
     platform: linux/amd64
-    container_name: validator_05
+    container_name: validator_06
     image: "xrpllabsofficial/xrpld"
     ports:
       - "8007:80"
@@ -71,66 +76,5 @@ services:
       - "4007:6006"
       - "9007:51235"
     volumes:
-      - ./validator_05/config:/config/
-
-  validator_06:
-    platform: linux/amd64
-    container_name: validator_06
-    image: "xrpllabsofficial/xrpld"
-    ports:
-      - "8008:80"
-      - "5013:5005"
-      - "4008:6006"
-      - "9008:51235"
-    volumes:
       - ./validator_06/config:/config/
-
-  validator_07:
-    platform: linux/amd64
-    container_name: validator_07
-    image: "xrpllabsofficial/xrpld"
-    ports:
-      - "8009:80"
-      - "5014:5005"
-      - "4009:6006"
-      - "9009:51235"
-    volumes:
-      - ./validator_07/config:/config/
-
-  validator_08:
-    platform: linux/amd64
-    container_name: validator_08
-    image: "xrpllabsofficial/xrpld"
-    ports:
-      - "8010:80"
-      - "5015:5005"
-      - "4010:6006"
-      - "9010:51235"
-    volumes:
-      - ./validator_08/config:/config/
-
-  validator_09:
-    platform: linux/amd64
-    container_name: validator_09
-    image: "xrpllabsofficial/xrpld"
-    ports:
-      - "8011:80"
-      - "5016:5005"
-      - "4011:6006"
-      - "9011:51235"
-    volumes:
-      - ./validator_09/config:/config/
-
-  validator_10:
-    platform: linux/amd64
-    container_name: validator_10
-    image: "xrpllabsofficial/xrpld"
-    ports:
-      - "8012:80"
-      - "5017:5005"
-      - "4012:6006"
-      - "9012:51235"
-    volumes:
-      - ./validator_10/config:/config/
-
 
