@@ -1,7 +1,8 @@
 import argh, yaml, os, shutil
 
 
-RIPPLED_IMAGE_HONEST = "xrpllabsofficial/xrpld"
+RIPPLED_IMAGE_HONEST = "rippled_standard_latest:latest"
+# RIPPLED_IMAGE_HONEST = "xrpllabsofficial/xrpld"
 RIPPLED_IMAGE_MALICIOUS = "xrpllabsofficial/xrpld"
 
 

@@ -14,7 +14,7 @@ services:
   validator_01:
     platform: linux/amd64
     container_name: validator_01
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8002:80"
       - "5007:5005"
@@ -25,7 +25,7 @@ services:
   validator_02:
     platform: linux/amd64
     container_name: validator_02
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8003:80"
       - "5008:5005"
@@ -36,7 +36,7 @@ services:
   validator_03:
     platform: linux/amd64
     container_name: validator_03
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8004:80"
       - "5009:5005"
@@ -47,7 +47,7 @@ services:
   validator_04:
     platform: linux/amd64
     container_name: validator_04
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8005:80"
       - "5010:5005"
@@ -58,7 +58,7 @@ services:
   validator_05:
     platform: linux/amd64
     container_name: validator_05
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8006:80"
       - "5011:5005"
@@ -69,7 +69,7 @@ services:
   validator_06:
     platform: linux/amd64
     container_name: validator_06
-    image: "xrpllabsofficial/xrpld"
+    image: "rippled_standard_latest:latest"
     ports:
       - "8007:80"
       - "5012:5005"
