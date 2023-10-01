@@ -8,7 +8,6 @@
       - "$(validator_port3):6006"
       - "$(validator_port4):51235"
     volumes:
-      - "./$(validator_name)/config/rippled.cfg:/etc/opt/ripple/rippled.cfg:Z"
-      - "./$(validator_name)/config/validators.txt:/etc/opt/ripple/validators.txt:Z"
+      - "./$(validator_name)/config/:/etc/opt/ripple:Z"
     entrypoint:
       - "/rippled/.build/rippled"
