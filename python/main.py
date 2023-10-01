@@ -1,9 +1,8 @@
 import argh, yaml, os, shutil
 
 
-RIPPLED_IMAGE_HONEST = "rippled_standard_latest:latest"
-# RIPPLED_IMAGE_HONEST = "xrpllabsofficial/xrpld"
-RIPPLED_IMAGE_MALICIOUS = "xrpllabsofficial/xrpld"
+RIPPLED_IMAGE_HONEST = "rippled_standard_latest"
+RIPPLED_IMAGE_MALICIOUS = "rippled_standard_latest"
 
 
 def read_data_from_input(input_path: str) -> list:
@@ -74,7 +73,7 @@ def create_validator_folders(output_path: str, validators: list) -> None:
 
 
 def create_docker_compose_file(validators: list, output_path: str) -> None:
-    last_used_ports = {"port1": 8000, "port2": 5005, "port3": 4000, "port4": 9000}
+    last_used_ports = {"port1": 8001, "port2": 5006, "port3": 4001, "port4": 9001}  # init these ports
     with open(os.path.join("templates", "docker-compose-validator.yml.temp"), "r") as template_file:
         validator_template_string = template_file.read()
     with open(os.path.join("templates", "docker-compose.yml.temp"), "r") as template_file:
@@ -85,14 +84,13 @@ def create_docker_compose_file(validators: list, output_path: str) -> None:
         validator_string: str = validator_template_string
         validator_string = validator_string.replace("$(validator_name)", validator["name"])
         
-        last_used_ports["port1"] += 1
-        last_used_ports["port2"] += 1
-        last_used_ports["port3"] += 1
-        last_used_ports["port4"] += 1
         validator_string = validator_string.replace("$(validator_port1)", str(last_used_ports["port1"]))
         validator_string = validator_string.replace("$(validator_port2)", str(last_used_ports["port2"]))
         validator_string = validator_string.replace("$(validator_port3)", str(last_used_ports["port3"]))
         validator_string = validator_string.replace("$(validator_port4)", str(last_used_ports["port4"]))
+
+        for port in last_used_ports.keys():
+            last_used_ports[port] += 1
 
         if validator["name"] == "validator_00":
             validator_string = validator_string.replace("$(validator_image)", RIPPLED_IMAGE_MALICIOUS)
