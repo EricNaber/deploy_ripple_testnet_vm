@@ -9,5 +9,3 @@
       - "$(validator_port4):51235"
     volumes:
       - "./$(validator_name)/config/:/etc/opt/ripple:Z"
-    entrypoint:
-      - "/rippled/.build/rippled"

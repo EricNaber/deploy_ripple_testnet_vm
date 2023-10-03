@@ -1,8 +1,8 @@
 import argh, yaml, os, shutil
 
 
-RIPPLED_IMAGE_HONEST = "rippled_standard_latest"
-RIPPLED_IMAGE_MALICIOUS = "rippled_standard_latest"
+RIPPLED_IMAGE_HONEST = "rippled_standard_1.4.0"
+RIPPLED_IMAGE_MALICIOUS = "rippled_standard_1.4.0"
 
 
 def read_data_from_input(input_path: str) -> list:
