@@ -1,0 +1,2 @@
+echo $(validator_name) 
+docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled server_info' | grep server_state\"
