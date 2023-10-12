@@ -1,6 +1,5 @@
 import argh, yaml, os, shutil
 
-
 RIPPLED_IMAGE_HONEST = "rippled_standard_1.4.0"
 RIPPLED_IMAGE_MALICIOUS = "rippled_standard_1.4.0"
 
@@ -116,6 +115,9 @@ def create_healthcheck_file(validators: list, output_path: str) -> None:
     
     with open(os.path.join(output_path, "healthcheck.sh"), "w") as write_file:
         write_file.write(healthcheck_string)
+
+
+
 
 
 @argh.arg('input_path',help="Input path to validator-information")
