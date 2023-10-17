@@ -31,6 +31,3 @@ RUN /bin/bash -c "cd rippled/.build && \
 # Create ripple-config directory and add rippled to binary
 RUN /bin/bash -c "mkdir /etc/opt/ripple/"
 RUN /bin/bash -c "ln -s /rippled/.build/rippled /usr/local/sbin/"
-
-# Execute rippled on startup
-ENTRYPOINT [ "rippled" ]
