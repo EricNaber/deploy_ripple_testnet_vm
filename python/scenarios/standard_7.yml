@@ -2,6 +2,9 @@
 
 # Standard Scenario 7. 7 Nodes, one of them being malicious.
 
+rippled_image_honest: "rippled_standard_1.4.0"
+rippled_image_malicious: "rippled_standard_1.4.0"
+
 validators:
   - name: "validator_00"
     public_key: "nHBAd3A8fMhfVB8yFZqFybPCa3weKTodhjopifzFQ8uDoz7JJTn7"

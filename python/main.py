@@ -1,14 +1,14 @@
 import argh, yaml, os, shutil
 
-RIPPLED_IMAGE_HONEST = "rippled_standard_1.4.0"
-RIPPLED_IMAGE_MALICIOUS = "rippled_common_prefix_1.4.0"
+rippled_image_honest = "rippled_standard_1.4.0"
+rippled_image_malicious = "rippled_common_prefix_1.4.0"
 
 
 def read_data_from_input(input_path: str) -> list:
     # Read configurations for validation-nodes from input_path. Note that input_path should lead to *.yml-file
     with open(input_path, "r") as input_file:
         data = yaml.safe_load(input_file.read())
-    return data["validators"]
+    return data["rippled_image_honest"], data["rippled_image_malicious"], data["validators"]
 
 
 def _get_validator_fixed_ips(validator: dict, validators: list):
@@ -17,7 +17,7 @@ def _get_validator_fixed_ips(validator: dict, validators: list):
     validators_list = validator["unl"]   # Store all validators accepted
     for entry in validators:
         if entry["name"] in validators_list:
-            fixed_ips_string += f"{entry['name']} 51235\n"
+            fixed_ips_string += f"{entry['name']} {entry['port']}\n"
     return fixed_ips_string
 
 
@@ -58,6 +58,7 @@ def create_validator_folders(output_path: str, validators: list) -> None:
             template_string = template_file.read()
 
         template_string = template_string.replace("$(validator_token)", validator["token"])
+        template_string = template_string.replace("$(validator_port)", validator["port"])
         template_string = template_string.replace("$(validator_fixed_ips)", _get_validator_fixed_ips(validator, validators))
         
         with open(os.path.join(validator_config_path, "rippled.cfg"), "w") as file:
@@ -71,7 +72,7 @@ def create_validator_folders(output_path: str, validators: list) -> None:
             file.write(validator_pubkeys_string)
 
 
-def create_docker_compose_file(validators: list, output_path: str) -> None:
+def create_docker_compose_file(validators: list, output_path: str, image_honest: str, image_malicious: str) -> None:
     last_used_ports = {"port1": 8001, "port2": 5006, "port3": 4001, "port4": 9001}  # init these ports
     with open(os.path.join("templates", "docker-compose-validator.yml.temp"), "r") as template_file:
         validator_template_string = template_file.read()
@@ -91,10 +92,13 @@ def create_docker_compose_file(validators: list, output_path: str) -> None:
         for port in last_used_ports.keys():
             last_used_ports[port] += 1
 
-        if validator["name"] == "validator_00":
-            validator_string = validator_string.replace("$(validator_image)", RIPPLED_IMAGE_MALICIOUS)
+        if not 'malicious' in validator.keys():
+            validator['malicious'] = False
+
+        if validator["malicious"]:
+            validator_string = validator_string.replace("$(validator_image)", image_malicious)
         else:
-            validator_string = validator_string.replace("$(validator_image)", RIPPLED_IMAGE_HONEST)
+            validator_string = validator_string.replace("$(validator_image)", image_honest)
         
         validators_string += f"{validator_string}\n"
     
@@ -117,15 +121,12 @@ def create_healthcheck_file(validators: list, output_path: str) -> None:
         write_file.write(healthcheck_string)
 
 
-
-
-
 @argh.arg('input_path',help="Input path to validator-information")
 @argh.arg('output_path',help="Path to output validator-configs and file structure")
 def main(input_path, output_path):
-    validators = read_data_from_input(input_path)
+    image_honest, image_malicious, validators = read_data_from_input(input_path)
     create_validator_folders(output_path, validators)
-    create_docker_compose_file(validators, output_path)
+    create_docker_compose_file(validators, output_path, image_honest, image_malicious)
     create_healthcheck_file(validators, output_path)
 
 
