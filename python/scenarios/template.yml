@@ -1,0 +1,16 @@
+---
+
+rippled_image_honest: "<IMAGE>"     # mandatory
+rippled_image_malicious: "<IMAGE>"  # default: <rippled_image_malicious>
+
+validators:
+  - name: "<VALIDATOR_NAME>"        # mandatory
+    malicious: <IS_MALICIOUS:BOOL>  # default: False
+    public_key: "<PUBLIC_KEY>"      # mandatory
+    secret_key: "<PRIVATE_KEY>"     # mandatory
+    token: "<TOKEN>"                # mandatory
+    unl: <VALIDATOR_LIST>           # mandatory
+    connections: <VALIDATOR_LIST>   # default: <unl>
+    port: "<PEER_PORT>"             # default: 51235
+
+...
