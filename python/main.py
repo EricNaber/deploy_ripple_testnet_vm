@@ -30,6 +30,12 @@ def read_data_from_input(input_path: str) -> list:
     return rippled_image_honest, rippled_image_malicious, validators
 
 
+def create_output_folder(output_path: str) -> None:
+    # creates folder output_path
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+
+
 def _get_validator_fixed_ips(validator: dict, validators: list):
     # each validator has section '[ips_fixed]'. This function creates its content and return it as a string
     fixed_ips_string = ""
@@ -141,6 +147,7 @@ def create_healthcheck_file(validators: list, output_path: str) -> None:
 @argh.arg('output_path',help="Path to output validator-configs and file structure")
 def main(input_path, output_path):
     image_honest, image_malicious, validators = read_data_from_input(input_path)
+    create_output_folder(output_path)
     create_validator_folders(output_path, validators)
     create_docker_compose_file(validators, output_path, image_honest, image_malicious)
     create_healthcheck_file(validators, output_path)
