@@ -129,18 +129,20 @@ def create_docker_compose_file(validators: list, output_path: str, image_honest:
         file.write(docker_compose_string)
 
 
-def create_healthcheck_file(validators: list, output_path: str) -> None:
-    with open(os.path.join("templates", "healthcheck.temp"), "r") as temp_file:
+def create_monitoring_file(validators: list, output_path: str) -> None:
+    with open(os.path.join("templates", "monitoring.temp"), "r") as temp_file:
         validator_template_string = temp_file.read()
     
-    healthcheck_string = "#! /bin/bash\n"
+    monitoring_string = "#! /bin/bash\n"
     for validator in validators:
         validator_string: str = validator_template_string
         validator_string = validator_string.replace("$(validator_name)", validator["name"])
-        healthcheck_string += f"\n{validator_string}\n"
+        monitoring_string += f"\n{validator_string}\n"
     
-    with open(os.path.join(output_path, "healthcheck.sh"), "w") as write_file:
-        write_file.write(healthcheck_string)
+    with open(os.path.join(output_path, "monitoring.sh"), "w") as write_file:
+        write_file.write(monitoring_string)
+    
+    os.chmod(os.path.join(output_path, "monitoring.sh"), 0o777)
 
 
 @argh.arg('input_path',help="Input path to validator-information")
@@ -150,7 +152,7 @@ def main(input_path, output_path):
     create_output_folder(output_path)
     create_validator_folders(output_path, validators)
     create_docker_compose_file(validators, output_path, image_honest, image_malicious)
-    create_healthcheck_file(validators, output_path)
+    create_monitoring_file(validators, output_path)
 
 
 if __name__=="__main__":
