@@ -1,8 +1,12 @@
 FROM ubuntu:18.04
 
+COPY ./transaction1 /transaction1.sh
+COPY ./transaction_dest1 /transaction_dest1.sh
+COPY ./transaction_dest2 /transaction_dest2.sh
+
 # Install dependencies
 RUN /bin/bash -c "apt update -y && apt upgrade -y"
-RUN /bin/bash -c "apt install gcc g++ wget git cmake protobuf-compiler libprotobuf-dev libssl-dev -y"
+RUN /bin/bash -c "apt install gcc g++ wget git cmake protobuf-compiler libprotobuf-dev libssl-dev iputils-ping -y"
 
 # clone Github-Project
 RUN /bin/bash -c "git clone https://github.com/EricNaber/rippled.git"
@@ -31,5 +35,7 @@ RUN /bin/bash -c "cd rippled/.build && \
 RUN /bin/bash -c "mkdir /etc/opt/ripple/"
 RUN /bin/bash -c "ln -s /rippled/.build/rippled /usr/local/sbin/"
 
-# Execute rippled on startup
-ENTRYPOINT [ "rippled" ]
+# Create transactions 
+RUN /bin/bash -c "chmod +x /transaction1.sh"
+RUN /bin/bash -c "chmod +x /transaction_dest1.sh"
+RUN /bin/bash -c "chmod +x /transaction_dest2.sh"
