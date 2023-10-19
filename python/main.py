@@ -1,23 +1,42 @@
 import argh, yaml, os, shutil
 
-rippled_image_honest = "rippled_standard_1.4.0"
-rippled_image_malicious = "rippled_common_prefix_1.4.0"
-
 
 def read_data_from_input(input_path: str) -> list:
     # Read configurations for validation-nodes from input_path. Note that input_path should lead to *.yml-file
     with open(input_path, "r") as input_file:
         data = yaml.safe_load(input_file.read())
-    return data["rippled_image_honest"], data["rippled_image_malicious"], data["validators"]
+
+    
+    # Mandatory fields and default values
+    assert("validators" in data.keys())
+    assert("rippled_image_honest" in data.keys())
+
+    if not "rippled_image_malicious" in data.keys(): data["rippled_image_malicious"] = data["rippled_image_honest"]
+    
+    for validator in data["validators"]:
+        assert("name" in validator.keys())
+        assert("public_key" in validator.keys())
+        assert("secret_key" in validator.keys())
+        assert("token" in validator.keys())
+        assert("unl" in validator.keys())
+
+        if not "connections" in validator.keys(): validator["connections"] = validator["unl"]
+        if not "malicious" in validator.keys(): validator["malicious"] = False
+        if not "port" in validator.keys(): validator["port"] = "51235"
+
+    rippled_image_honest, rippled_image_malicious, validators = \
+          data["rippled_image_honest"], data["rippled_image_malicious"], data["validators"]
+
+    return rippled_image_honest, rippled_image_malicious, validators
 
 
 def _get_validator_fixed_ips(validator: dict, validators: list):
     # each validator has section '[ips_fixed]'. This function creates its content and return it as a string
     fixed_ips_string = ""
-    validators_list = validator["unl"]   # Store all validators accepted
-    for entry in validators:
-        if entry["name"] in validators_list:
-            fixed_ips_string += f"{entry['name']} {entry['port']}\n"
+    validators_list = validator["connections"]   # Store all validators accepted
+    for validator in validators:
+        if validator["name"] in validators_list:
+            fixed_ips_string += f"{validator['name']} {validator['port']}\n"
     return fixed_ips_string
 
 
@@ -91,9 +110,6 @@ def create_docker_compose_file(validators: list, output_path: str, image_honest:
 
         for port in last_used_ports.keys():
             last_used_ports[port] += 1
-
-        if not 'malicious' in validator.keys():
-            validator['malicious'] = False
 
         if validator["malicious"]:
             validator_string = validator_string.replace("$(validator_image)", image_malicious)
