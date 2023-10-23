@@ -1,0 +1,6 @@
+validator_name=$(validator_name)
+
+ledger_seq=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled ledger' | head -n 25 | grep -E "seqNum")
+ledger_hash=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled ledger' | head -n 25 | grep -E "ledger_hash")
+
+echo $validator_name: at $ledger_seq with $ledger_hash
