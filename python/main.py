@@ -1,5 +1,7 @@
 import argh, yaml, os, shutil
 
+TEMPLATE_PATH = os.path.join("templates")
+FILES_PATH = os.path.join("files")
 
 def read_data_from_input(input_path: str) -> list:
     # Read configurations for validation-nodes from input_path. Note that input_path should lead to *.yml-file
@@ -130,7 +132,7 @@ def create_docker_compose_file(validators: list, output_path: str, image_honest:
 
 
 def create_monitoring_file(validators: list, output_path: str) -> None:
-    with open(os.path.join("templates", "monitoring.temp"), "r") as temp_file:
+    with open(os.path.join(TEMPLATE_PATH, "monitoring.temp"), "r") as temp_file:
         validator_template_string = temp_file.read()
     
     monitoring_string = "#! /bin/bash\n"
@@ -145,6 +147,29 @@ def create_monitoring_file(validators: list, output_path: str) -> None:
     os.chmod(os.path.join(output_path, "monitoring.sh"), 0o777)
 
 
+def create_small_monitoring_file(validators: list, output_path: str) -> None:
+    with open(os.path.join(TEMPLATE_PATH, "small_monitoring.temp"), "r") as temp_file:
+        validator_template_string = temp_file.read()
+    
+    monitoring_string = "#! /bin/bash\n"
+    for validator in validators:
+        validator_string: str = validator_template_string
+        validator_string = validator_string.replace("$(validator_name)", validator["name"])
+        monitoring_string += f"\n{validator_string}\n"
+    
+    with open(os.path.join(output_path, "small_monitoring.sh"), "w") as write_file:
+        write_file.write(monitoring_string)
+    
+    os.chmod(os.path.join(output_path, "small_monitoring.sh"), 0o777)
+
+
+def move_files(output_path: str):
+    # Move all files in input_path to output_path
+    files = os.listdir(FILES_PATH)
+    for file_name in files:
+        shutil.copy(os.path.join(FILES_PATH, file_name), output_path)
+
+
 @argh.arg('input_path',help="Input path to validator-information")
 @argh.arg('output_path',help="Path to output validator-configs and file structure")
 def main(input_path, output_path):
@@ -153,6 +178,8 @@ def main(input_path, output_path):
     create_validator_folders(output_path, validators)
     create_docker_compose_file(validators, output_path, image_honest, image_malicious)
     create_monitoring_file(validators, output_path)
+    create_small_monitoring_file(validators, output_path)
+    move_files(output_path)
 
 
 if __name__=="__main__":
