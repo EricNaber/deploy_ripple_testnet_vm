@@ -21,6 +21,7 @@ def read_data_from_input(input_path: str) -> list:
         assert("secret_key" in validator.keys())
         assert("token" in validator.keys())
         assert("unl" in validator.keys())
+        assert("ip_address" in validator.keys())
 
         if not "connections" in validator.keys(): validator["connections"] = validator["unl"]
         if not "malicious" in validator.keys(): validator["malicious"] = False
@@ -123,6 +124,8 @@ def create_docker_compose_file(validators: list, output_path: str, image_honest:
             validator_string = validator_string.replace("$(validator_image)", image_malicious)
         else:
             validator_string = validator_string.replace("$(validator_image)", image_honest)
+        
+        validator_string = validator_string.replace("$(validator_ip_address)", validator["ip_address"])
         
         validators_string += f"{validator_string}\n"
     

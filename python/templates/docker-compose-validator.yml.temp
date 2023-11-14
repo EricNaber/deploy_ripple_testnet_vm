@@ -10,3 +10,6 @@
     volumes:
       - "./$(validator_name)/config/:/etc/opt/ripple:Z"
     entrypoint: [ "rippled" ]
+    networks:
+      xrp_net:
+        ipv4_address: "$(validator_ip_address)"
