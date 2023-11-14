@@ -1,0 +1,3 @@
+#! /bin/bash
+
+rippled submit sEd7gsxCwikqZ9C81bjKMFNM9xoReYU '{"Account":"rfhWbXmBpxqjUWfqVv34t4pHJHs6YDFKCN","Amount": "1000000000","Destination":"rG1eMisac1neCXeZNPYmwV8sovo5vs9dnB","TransactionType": "Payment","Fee": "10" }'
