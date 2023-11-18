@@ -10,41 +10,48 @@ validators:
     secret_key: "paCJhEa3b7insPUDSBpzybq1CZ5mahVNA4E1rr3TosiN2XhmDUQ"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUxTm45Sksza05nTFByeE8xdk1Yd2JKeUIzdUdDdUEr\nU09wTkRjWjhrMUFvM01oQS95ZEhReUhQUFFCcENMTVhpWVhKaXArL1hzcUdlQzlmQWRTZ0V2\nNmZiU2pka2N3UlFJaEFOYlpPdzYydEt4UHR1ZSsxVW95aldudW1JL0dsMlhoMXkvQTlwMU53\nSGtvQWlCQlVsRFAzeTNEYU1HRzJxOHNtNnlkUlR4b1paSkQxSUZzYTI4NFFUVkRQWEFTUUFV\nSHU1NDkwbXFFMFNCMDFxMU5YdHh1M0dzV2k0VStkY0hFa3lsV2F5MmZXd2greFRZMCtPK1Fr\nK2RDODhtMFNSVHAvSTR2VUF6anBZRDlvVkVIREFBPSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6Ijg1NDc2QjYxNzBCQzlGRjE3ODY4MDZDQTUzN0VGNzNCNTVFODc4NTZFMEYxNjhFNjg4\nOUQ4QzE0RjQwQUY3RDkifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.0"
 
   - name: "validator_01"
     public_key: "nHUphnCKJxkj18s5vmxVVcoStzTsKFCnYpyvcxXLEKduxp4CaLTk"
     secret_key: "pnG6f5rwmmMokooP2bSJx4vbx21bqrMYrFPdz61J1GHa9dDSVhz"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUxWHJ1dzM0Q1NZZWZ2Z2xqMzRCaHN2ZExUblNqSGll\nYktFZUpkUFFrd1Bkbk1oQTgvVG1kWHpiNFpSSXN5RXdnc1BJU1JHQ3hOYnlYTW9ncjhkNk5C\nZFhkMjJka1l3UkFJZ004Y1RZTXBxYld2cVcvUkxaaUg1bko1VnByRFhkR1hFMHlER0pWOTRM\nd0FDSUZEVGxIYm95NTBJZVNzVkg0Wll1bThFVElzRFo5Q2p6RkZVeDZnYU9tZ1hjQkpBdkh5\nRmFPQTM4WHAxenRHQis5a0lRTmhFRXpkaittVng1VnRrc2g4Z0w2S2xiTGp3UXNXdEFXK2I5\nZmZFVGVUWkFLc3NtcHg0K29jUEpOU1lGWXdGQnc9PSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IkFERjIyRDhFRkNCRUM2RDYwMzRDMDhFN0Q0Nzg4MUY5RjA5QURCQzVEREM4QjhDMTAw\nQjUzQUY4NEUxNDI3OUYifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.1"
 
   - name: "validator_02"
     public_key: "nHUeHW1rYxjTSTDgVPM69857rrb3bBrkNaSWvPCCnEgvqSDmFhKz"
     secret_key: "pfh6zrV6tjR4qQ5uHNDD6JqVAnUPSnzmHpJWoAwvJkM9NxrHQUr"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUycDg1NmMvVEh4ZnA3bWdEZ2dYcnVWR01vVjdLemY2\nTmRJMVNxR3ROd1F0M01oQWpHak54UnArcHpQc3hLL1BjMUVuNjdpM3pKSmJscFFjUW1McGwv\nSVNIQlJka2N3UlFJaEFJc0tXRW92dDlwY3FlMjVKMU1JZDI2Ni85WFk4QkJUQ2V4bFIzNSt6\nMmdOQWlBNFFFSDZ4WnFzWldKWU9aNHpCQnVlSVM4SW5UUk5DeC9rYnlZQUtQaE4vWEFTUUxE\naGlnMU1haEsySzJ4TFRLZXR2S00rYXRCSmV5b2Z1dVZYdDV4Si9tNFU2STNCWHF6UHZrMWhs\nQzFyOVc4aFZvTHlMb2ZYZTN5TUZFVkpTUDNZU2dZPSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjNCM0JEQkI5QzU0RDM0Q0U1NjJFMEQzNDFEQ0VBOTJCOEEyREJDMDRCNzEwNzhGOERF\nRDMzMERGNDc4MENDMjcifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.2"
 
   - name: "validator_03"
     public_key: "nHU1QN8xaRNGMBHiYEKwi6hTj9A7MzbEedAgceNL3ZUKBTDKSXcZ"
     secret_key: "pacwrohrECpx25KvxPuXCWFcamfqsQaq8yVdZN2LnhFANrwFVDK"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUzSHU2RFl4OFBNMUNqc3lRQ2F0TERlckMwSUU1aFJh\nOUNmVnRmazRtdUxvbk1oQTk0clBQWVMyUUhWMU1nR0tDS09nYlhyWWdQZXQrOUJYRERtTjBF\nRnEwcFlka2N3UlFJaEFLOUpHdit2UzdrZytJaHNsWTlTVlJxdldva0JBaFdackdHdThiS0lW\nYmNwQWlCMmJsbGhvQ2wrdVV5cjlaTnZzZTBDL1BTUUZDdW0yMk9BRjNITm5DbldpM0FTUUwz\nM1l0YmMvZ2l1YlpFYTF2ZlNUVDBHcklYMlZOT3Nlb29kMStYTVNvOTR4aThGVSt1Y3U5V3VO\nVW5NQ2RnSVNWSXFYNXFNOGxhWU5iKy9neDBEUkFRPSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjcxQjFDNjU4Mzc2RTNGOTgzRjg1Qjc3N0ZEMDZENTE3NTU3MjRBOTBBM0JBOUI2QkZB\nOTBFMzk0MUYyQkM1RTUifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.3"
 
   - name: "validator_04"
     public_key: "nHUzrc7SdKtymVY12UjNH9Ma2d9uiVsdzuNWUJgDyCBHnGuxjTfF"
     secret_key: "pazkTGWjJvmMTGbs25vAMveTvMzeJp7pa9bK7fcHQS17Cx6hEDk"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUzV3ZkS1NPbmdxb21Qa1FvbCsxUlkzMzVBZDBCVjEv\nOTErOEVSQ3lTeG9sbk1oQXV0TlprMkoyeHNOM3NZd1IzRnRWUFZzY3dCUXZueFh0T2ZhRWRU\nRVJTNENka1l3UkFJZ1pnSndpdmlNMWxSVjl0N1FHSVhVYWhiYXcrR0pJQmlhQmpZTDN6VDhR\nK1lDSUYyQUF2OWlOMTg3K1FrRXNtK04xTGtwSDUzdm9SbHdWV0dBb3JHR05FbVdjQkpBMGdq\nQS9Hb29XZ3l5WmRKNWYzYTlUOS9lMVdTMGdKcDhkVzdwekVYWDgvUTRBR2hOZGh6aW5hY05I\nbUhTOFcwYVcxZVpjNDQzVFBCUEtkT1hDM2NQQ3c9PSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjZFMkU2RkQ2MUY2MDgzN0JCNDA2NDIyMEI3MUM2NEE4NDA1MDE1MUQxMDA5QkEwRjQ4\nODk2NDE0NDUzMDEyMjUifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.4"
 
   - name: "validator_05"
     public_key: "nHDGpZ2d7zTRXdo3N8e8rtWyEhiri4pZn81okxbmwEar5wrYXSMT"
     secret_key: "pnxaU4U9uKgaU8akPf1ygYwCtzMMzP5p2x5LycqhKsCyjm3Wu6k"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUzN0c5QlFkWjJCK2liUEljVTNqUW9HVERZWlZ3T3BF\nenNVaWNRN2NYV3ZQM01oQStKVkRXa2U1TXpocytSTDBuTTg5MzJZaGlrbGRrRjlHOHExSHNi\nbXhPWGxka2N3UlFJaEFMNzhQcVl3ejJ6N2dKZkoxdHNKSnZGV2l4RHB2ZG9rM2d0SmlwbVNL\nMmU2QWlCcngxQ3ZndVFWVTVJY3gyVG1LbUdmZlR3VFJ5WkczcUxZQmo1UUQwc3R1WEFTUUwy\nNWNDcUNlakdqcUVzZkNJb1kvZUdqUTJoejlCZkZSeEhqWnhVRUl0ZEpTelVHTHFsTHdRWklM\nSU1MeVc3NjZxUUJIYkZCUVhOSHBEWUhkWWRsaGdFPSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjE1NzZCMkMyOTAyMTM1RThCMzQ3ODlEODVFOUU5MUU2MTAwNEY3M0MzOTBDRjNEMjRG\nMDI0QzdFQUJFREQyOEEifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.5"
 
   - name: "validator_06"
     public_key: "nHDHLBvnL7FWfkFWr8pHt4fJNmJMNLjjj3sUfYgT3Y4LMkxCEiCj"
     secret_key: "pnK9kYadGQjGVqNd14XVuWXkErYedxHMZCwU1m7Q4VHHFDrpx4g"
     token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUzK0ViOGRFNk4razVUMkFFTkFzNzZDcGZWWVhMcExz\nV0ZFZmd6cktmbHpXSE1oQTZmakRTdnh6cHRwbGd6dDM4eElxS3l0ZXZiNnhFaHBiTkt4alZ6\nNUwwVUJka1l3UkFJZ2JxcTdlV1RHeFM5Uk5LSFJPeGdjeGZYenV6QXJYUmhQaHd6VDV4MmVj\nN1FDSUh6RUdaQXpTa3NIKzJsNGM3d2M4Y2NQMzdISkpQdmpLT212ZlVFQnBzdHVjQkpBMDVI\ndC96b1Z2Uk9sNHJLVitQYUtrc0FKYVMvS2R1dnlteklZZHNzNmRiQk9nWUMwdmZ1emYzeXRq\nQkJyZVpmTm83djgyL3kyTUE3UUlNbENLTzNNQmc9PSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjFENDU1NjhGMDNBMEJGN0FGODM4MjkwOEQ2OTlEMjIxNUY4NjEwMDA5MjkwQjg0NUI1\nRTcwNDk0NTAwQkJCMkYifQ=="
     unl: ["validator_00", "validator_01", "validator_02", "validator_03", "validator_04", "validator_05", "validator_06"]
+    ip_address: "10.5.1.6"
 
 ...
