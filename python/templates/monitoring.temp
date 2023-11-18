@@ -10,8 +10,8 @@ rnk_balance=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/ri
 
 echo $validator_name: $server_state at $ledger_seq
 echo $ledger_hash
-echo Balance Genesis: $gen_balance coins
-echo Balance Source : $src_balance coins
-echo Balance rG1eMis: $rG1_balance coins
-echo Balance rnkP5Ti: $rnk_balance coins
+echo Balance Genesis: $gen_balance drops
+echo Balance Source : $src_balance drops
+echo Balance rG1eMis: $rG1_balance drops
+echo Balance rnkP5Ti: $rnk_balance drops
 echo
