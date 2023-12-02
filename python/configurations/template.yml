@@ -1,7 +1,7 @@
 ---
 
 rippled_image_honest: "<IMAGE>"         # mandatory
-rippled_image_malicious: "<IMAGE>"      # default: <rippled_image_malicious>
+rippled_image_malicious: "<IMAGE>"      # default: <rippled_image_honest>
 
 validators:
   - name: "<VALIDATOR_NAME>"            # mandatory

@@ -1,0 +1,31 @@
+---
+
+rippled_image_honest: "rippled_standard_1.4.0"
+rippled_image_malicious: "rippled_liveness_1.4.0"
+
+validators:
+
+# cluster 0
+  - name: "validator_0"
+    malicious: true
+    public_key: "nHBAd3A8fMhfVB8yFZqFybPCa3weKTodhjopifzFQ8uDoz7JJTn7"
+    secret_key: "paCJhEa3b7insPUDSBpzybq1CZ5mahVNA4E1rr3TosiN2XhmDUQ"
+    token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUxTm45Sksza05nTFByeE8xdk1Yd2JKeUIzdUdDdUEr\nU09wTkRjWjhrMUFvM01oQS95ZEhReUhQUFFCcENMTVhpWVhKaXArL1hzcUdlQzlmQWRTZ0V2\nNmZiU2pka2N3UlFJaEFOYlpPdzYydEt4UHR1ZSsxVW95aldudW1JL0dsMlhoMXkvQTlwMU53\nSGtvQWlCQlVsRFAzeTNEYU1HRzJxOHNtNnlkUlR4b1paSkQxSUZzYTI4NFFUVkRQWEFTUUFV\nSHU1NDkwbXFFMFNCMDFxMU5YdHh1M0dzV2k0VStkY0hFa3lsV2F5MmZXd2greFRZMCtPK1Fr\nK2RDODhtMFNSVHAvSTR2VUF6anBZRDlvVkVIREFBPSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6Ijg1NDc2QjYxNzBCQzlGRjE3ODY4MDZDQTUzN0VGNzNCNTVFODc4NTZFMEYxNjhFNjg4\nOUQ4QzE0RjQwQUY3RDkifQ=="
+    unl: [validator_0, validator_1, validator_4]
+    ip_address: "10.5.1.0"
+
+  - name: "validator_1"
+    public_key: "nHUphnCKJxkj18s5vmxVVcoStzTsKFCnYpyvcxXLEKduxp4CaLTk"
+    secret_key: "pnG6f5rwmmMokooP2bSJx4vbx21bqrMYrFPdz61J1GHa9dDSVhz"
+    token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUxWHJ1dzM0Q1NZZWZ2Z2xqMzRCaHN2ZExUblNqSGll\nYktFZUpkUFFrd1Bkbk1oQTgvVG1kWHpiNFpSSXN5RXdnc1BJU1JHQ3hOYnlYTW9ncjhkNk5C\nZFhkMjJka1l3UkFJZ004Y1RZTXBxYld2cVcvUkxaaUg1bko1VnByRFhkR1hFMHlER0pWOTRM\nd0FDSUZEVGxIYm95NTBJZVNzVkg0Wll1bThFVElzRFo5Q2p6RkZVeDZnYU9tZ1hjQkpBdkh5\nRmFPQTM4WHAxenRHQis5a0lRTmhFRXpkaittVng1VnRrc2g4Z0w2S2xiTGp3UXNXdEFXK2I5\nZmZFVGVUWkFLc3NtcHg0K29jUEpOU1lGWXdGQnc9PSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IkFERjIyRDhFRkNCRUM2RDYwMzRDMDhFN0Q0Nzg4MUY5RjA5QURCQzVEREM4QjhDMTAw\nQjUzQUY4NEUxNDI3OUYifQ=="
+    unl: [validator_0, validator_1, validator_4]
+    ip_address: "10.5.1.1"
+
+  - name: "validator_4"
+    public_key: "nHUzrc7SdKtymVY12UjNH9Ma2d9uiVsdzuNWUJgDyCBHnGuxjTfF"
+    secret_key: "pazkTGWjJvmMTGbs25vAMveTvMzeJp7pa9bK7fcHQS17Cx6hEDk"
+    token: "eyJtYW5pZmVzdCI6IkpBQUFBQUZ4SWUzV3ZkS1NPbmdxb21Qa1FvbCsxUlkzMzVBZDBCVjEv\nOTErOEVSQ3lTeG9sbk1oQXV0TlprMkoyeHNOM3NZd1IzRnRWUFZzY3dCUXZueFh0T2ZhRWRU\nRVJTNENka1l3UkFJZ1pnSndpdmlNMWxSVjl0N1FHSVhVYWhiYXcrR0pJQmlhQmpZTDN6VDhR\nK1lDSUYyQUF2OWlOMTg3K1FrRXNtK04xTGtwSDUzdm9SbHdWV0dBb3JHR05FbVdjQkpBMGdq\nQS9Hb29XZ3l5WmRKNWYzYTlUOS9lMVdTMGdKcDhkVzdwekVYWDgvUTRBR2hOZGh6aW5hY05I\nbUhTOFcwYVcxZVpjNDQzVFBCUEtkT1hDM2NQQ3c9PSIsInZhbGlkYXRpb25fc2VjcmV0X2tl\neSI6IjZFMkU2RkQ2MUY2MDgzN0JCNDA2NDIyMEI3MUM2NEE4NDA1MDE1MUQxMDA5QkEwRjQ4\nODk2NDE0NDUzMDEyMjUifQ=="
+    unl: [validator_0, validator_1, validator_4]
+    ip_address: "10.5.1.4"
+
+...

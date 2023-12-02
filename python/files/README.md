@@ -1,12 +1,16 @@
-This directory was created by a project from: https://github.com/EricNaber/deploy_rippled_docker_testnet
+This directory was created by a project by: https://github.com/EricNaber/deploy_rippled_docker_testnet
 
 
-Angriff	auf Common Prefix: 
+Attack on Common Prefix: 
+1. docker-compose up -d
+2. python network_delay.py
+3. python common_prefix_attack.py
+4. the monitoring
 
-1. Hochfahren der Docker-Container (docker-compose up -d)
-2. Deployen der Network	Delays (network_delay.py)
-3. Transaction 1: Genesis -> Source 
-4. Gleichzeitiges submitten von transaction_dest1.sh und transaction_dest2.sh
-   -> Source -> rG1eMis	bzw. Source -> rnkP5Ti
-   -> common_prefix_attack.py (nutzt Threads und Semaphoren, um Gleichzeitigkeit bestmöglich umzusetzen)
-5. Im Monitoring sieht man einen Fork des Netzwerkes
+Angriff auf Liveness:
+1. docker-compose up -d
+2. python network_delay.py
+3. docker exec -it validator_XY bash
+4. rippled submit snoPBrXtMeMyMHUVTgbuqAfg1SUTb '{"Account":"rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh","Amount": "1500000000","Destination":"rfhWbXmBpxqjUWfqVv34t4pHJHs6YDFKCN","TransactionType": "Payment","Fee": "10" }'
+5. rippled attack
+6. rippled unfreeze

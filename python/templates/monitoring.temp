@@ -1,7 +1,7 @@
 validator_name=$(validator_name)
 
 server_state=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled server_info' | grep server_state\")
-ledger_seq=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled ledger' | head -n 25 | grep -E "seqNum|ledger_index")
+ledger_seq=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled ledger' | head -n 20 | grep -E "ledger_index")
 ledger_hash=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled ledger' | head -n 25 | grep -E "ledger_hash")
 gen_balance=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled account_info rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh' | grep "Balance")
 src_balance=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/rippled account_info rfhWbXmBpxqjUWfqVv34t4pHJHs6YDFKCN' | grep "Balance")
@@ -11,7 +11,7 @@ rnk_balance=$(docker exec -it $(validator_name) /bin/bash -c '/rippled/.build/ri
 echo $validator_name: $server_state at $ledger_seq
 echo $ledger_hash
 echo Balance Genesis: $gen_balance drops
-echo Balance Source : $src_balance drops
+echo Balance rfhWbXm: $src_balance drops
 echo Balance rG1eMis: $rG1_balance drops
 echo Balance rnkP5Ti: $rnk_balance drops
 echo
